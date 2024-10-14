@@ -1,0 +1,25 @@
+Option Explicit
+
+Public Sub HelpIntegral()
+    
+    'Переменные значений функции
+    Dim H0 As String
+    Dim H1 As String
+    Dim H2 As String
+    Dim H3 As String
+    Dim H4 As String
+    
+    H0 = "Вычисление определенного интеграла методом трапеций"
+    H1 = "Нижняя граница интеграла"
+    H2 = "Верхняя граница интеграла"
+    H3 = "Количество интервалов"
+    H4 = "Имя интегрируемой функции"
+    
+    'Метод описания элементов функции
+    Application.MacroOptions _
+    Macro:="TRAP", _
+    Description:=H0, _
+    ArgumentDescriptions:=Array(H1, H2, H3, H4)
+    'Название функции, описание функции, описание аргументов
+    
+End Sub
