@@ -1,0 +1,37 @@
+Option Explicit
+
+'Вызов функции TRAP
+Public Function TRAP(ByRef a As Double, ByRef b As Double, _
+ByRef N As Integer, Func As String) As Double
+    Dim h As Double
+    Dim S As Double
+    Dim i As Integer
+    Dim y As Double
+    
+    h = (b - a) / N 'Шаг разбиения функции
+    S = Application.Run(Func, a) + Application.Run(Func, b) 'Сумма = Интеграл
+    
+    'Цикл вычисления определенного интеграла методом трапеций
+    For i = 1 To N - 1
+        y = Application.Run(Func, a + (h * i))
+        S = S + y * 2
+    Next i
+    
+    S = S * h / 2
+    TRAP = S
+    
+End Function
+
+Public Function MyFOdin(x1 As Double) As Double
+    
+    'Первое подынтегральное выражение
+    MyFOdin = x1 / Sqr(x1 ^ 2 + 3)
+    
+End Function
+
+Public Function MyFDva(x2 As Double) As Double
+    
+    'Второе подынтегральное выражение
+    MyFDva = (x2 ^ 2 + 1.4) / Sqr(x2 ^ 2 + 2.7)
+    
+End Function
